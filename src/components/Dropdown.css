@@ -2,58 +2,58 @@
 
 .mega-menu {
   position: absolute;
-  top: 3rem;
+  top: 3rem; /* Positions dropdown directly under the 3rem tall navbar */
   left: 0;
   width: 100%;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  padding: 0;
+  /* padding: 35px; */
+  padding-top: 45px;
+  padding-bottom: 45px;
   box-sizing: border-box;
   z-index: 999;
   border-top: 1px solid #e0e0e0;
   color: #525252;
 }
 
+/* --- UPDATED: Refined padding to match the screenshot's whitespace --- */
 .mega-menu-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 3.5rem;   /* Was 4rem, adjusted for precision */
+  padding-bottom: 5rem;  /* Increased for more space at the bottom */
   align-items: flex-start;
 }
 
+/* --- UPDATED: Increased row gap for more vertical space between items --- */
 .mega-menu-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem 2rem;
+  gap: 4rem 2.5rem; /* Increased row-gap significantly (was 3rem) */
   width: 100%;
 }
 
-/* --- REVISED with corrected hover effect --- */
 .menu-item {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #161616; /* Text color will not change */
-  font-size: 1rem; /* 16px */
-  font-weight: 400; /* Regular weight */
+  color: #161616;
+  font-size: 1rem;
+  font-weight: 400;
   width: fit-content;
-  
-  /* Use text-decoration for a proper underline */
   text-decoration: underline;
-  text-decoration-color: transparent; /* Hide underline by default */
-  text-decoration-thickness: 2px; /* "Slightly thick" underline */
-  text-underline-offset: 4px; /* MOVED CLOSER: Controls distance from text */
-  transition: text-decoration-color 0.15s ease-in-out; /* Animate the color */
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease-in-out;
 }
 
 .menu-item:hover {
-  /* FIXED: Explicitly set text color to prevent it from changing on hover */
   color: #161616; 
-  /* On hover, make the transparent underline visible with the brand's blue color */
   text-decoration-color: #161616;
 }
 
 
 /* Products Menu Specifics */
+/* This rule correctly prevents the padding change above from affecting the Products menu */
 .products-menu .mega-menu-container {
   padding: 0;
 }
