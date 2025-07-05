@@ -1,0 +1,173 @@
+/* src/components/Dropdown.css */
+
+.mega-menu {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 999;
+  border-top: 1px solid #e0e0e0;
+  color: #525252;
+}
+
+.mega-menu-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem 2rem;
+  width: 100%;
+}
+
+/* --- REVISED with corrected hover effect --- */
+.menu-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #161616; /* Text color will not change */
+  font-size: 1rem; /* 16px */
+  font-weight: 400; /* Regular weight */
+  width: fit-content;
+  
+  /* Use text-decoration for a proper underline */
+  text-decoration: underline;
+  text-decoration-color: transparent; /* Hide underline by default */
+  text-decoration-thickness: 2px; /* "Slightly thick" underline */
+  text-underline-offset: 4px; /* MOVED CLOSER: Controls distance from text */
+  transition: text-decoration-color 0.15s ease-in-out; /* Animate the color */
+}
+
+.menu-item:hover {
+  /* FIXED: Explicitly set text color to prevent it from changing on hover */
+  color: #161616; 
+  /* On hover, make the transparent underline visible with the brand's blue color */
+  text-decoration-color: #161616;
+}
+
+
+/* Products Menu Specifics */
+.products-menu .mega-menu-container {
+  padding: 0;
+}
+.products-nav {
+  background-color: #f4f4f4;
+  padding: 1.5rem 0;
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+}
+.products-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.products-nav li a {
+  display: block;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  color: #525252;
+  font-size: 0.875rem; /* 14px */
+}
+.products-nav li a:hover {
+  color: #161616;
+}
+.products-nav li.active a {
+  background-color: #e8e8e8;
+  color: #161616;
+}
+.view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0f62fe;
+  color: white;
+  padding: 1rem;
+  margin: 1rem 1.5rem 0 1.5rem;
+  text-decoration: none;
+  font-weight: 600; /* Bolder for CTA */
+}
+.products-content {
+  padding: 1.5rem 2.5rem;
+  flex-grow: 1;
+  color: #161616;
+}
+.products-content h3 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+.product-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem; /* 16px */
+  font-weight: 600; /* Semi-bold */
+}
+.product-item p {
+  margin: 0;
+  font-size: 0.875rem; /* 14px */
+  color: #525252;
+}
+
+
+/* Support Menu Specifics */
+.support-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.support-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  gap: 1.5rem;
+}
+
+.support-section .column-title {
+  font-weight: 600; /* Headings are bolder */
+}
+.support-section ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+.support-section ul li a {
+  text-decoration: none;
+  color: #525252;
+  font-size: 0.875rem; /* 14px */
+  line-height: 2;
+  transition: color 0.15s ease-in-out;
+}
+.support-section ul li a:hover {
+  color: #161616;
+}
+
+.products-content h3:hover {
+  color: #0043ce;
+}
+
+.product-item:hover {
+  cursor: pointer;
+}
+
+.product-item p {
+  color: #161616;
+}

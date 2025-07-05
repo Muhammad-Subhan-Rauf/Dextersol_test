@@ -1,0 +1,42 @@
+/* src/App.css */
+
+/*
+  This ensures the page background and layout start from the very top-left
+  corner of the browser window.
+*/
+body {
+  margin: 0;
+  /* UPDATED: Prioritizing IBM's official font for authenticity */
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+}
+
+.App {
+  text-align: left;
+}
+
+/* 
+  A reusable container to constrain content width and center it.
+*/
+.content-container {
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+  Styles the main content area, pushing it below the fixed navbar.
+*/
+.page-content {
+  padding: 1.5rem;
+  padding-top: 4rem; 
+}

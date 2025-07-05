@@ -1,0 +1,250 @@
+/* src/components/Navbar.css */
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* ADDED: Smooth transition for showing/hiding */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ADDED: Style for when the navbar should be hidden */
+.navbar-container.is-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  height: 3rem;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  color: #161616; /* Darker default color for icons */
+  position: relative;
+  z-index: 1001;
+}
+
+/* --- Left and Right Sections --- */
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.ibm-logo-link {
+  color: #161616;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* --- Mobile Menu Toggle (Hamburger) --- */
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+}
+
+/* --- Desktop Navigation --- */
+.desktop-nav {
+  height: 100%;
+}
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+}
+.navbar-links li {
+  display: flex;
+  align-items: center;
+}
+.navbar-links li a {
+  color: #525252;
+  text-decoration: none;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400; /* Regular weight */
+  transition: color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 100%;
+  padding: 0 1rem;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.navbar-links li a:hover {
+  color: #161616;
+}
+.navbar-links li a.active {
+  color: #0f62fe;
+  border-bottom-color: #0f62fe; 
+}
+.navbar-links li a.active,
+.navbar-links li a.active:hover {
+  color: #0f62fe;
+}
+
+/* Styles for animating the dropdown chevron */
+.navbar-links li a svg {
+  transition: transform 0.2s ease-in-out;
+}
+.navbar-links li a.active svg {
+  transform: rotate(180deg);
+}
+
+
+/* --- Right-side Icons --- */
+.navbar-right button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  display: flex;
+}
+
+/* --- MOBILE NAVIGATION STYLES --- */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  color: #161616;
+}
+.mobile-nav-overlay.is-open {
+  transform: translateX(0);
+}
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 3rem;
+  background-color: #f4f4f4;
+  flex-shrink: 0;
+}
+.mobile-nav-header button {
+  background: none; border: none; padding: 0; cursor: pointer; color: inherit;
+}
+.mobile-nav-content-container {
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+}
+.mobile-nav-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+.main-panel.is-hidden { transform: translateX(-100%); }
+.sub-panel { transform: translateX(100%); }
+.sub-panel.is-active { transform: translateX(0); }
+
+.mobile-nav-panel ul { list-style: none; padding: 0; margin: 0; }
+
+/* REVISED: Common styles for all full-width clickable items */
+.mobile-nav-panel li a, .mobile-nav-back-button {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid #e8e8e8; /* Default gray border */
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Styles specific to regular navigation links */
+.mobile-nav-panel li a {
+  justify-content: space-between;
+  color: #161616;
+}
+
+/* CORRECTED: Styles specific to the back button */
+.mobile-nav-back-button {
+  justify-content: flex-start; /* Align content to the left */
+  gap: 0.5rem;
+  border-bottom-color: #0f62fe; /* Blue bottom border */
+  color: #0f62fe; /* Blue text and icon */
+  font-weight: 600; /* Bold text */
+}
+
+.mobile-nav-panel li.sub-menu-heading > a {
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+.mobile-nav-panel li:not(.sub-menu-heading) a {
+  font-size: 0.875rem;
+}
+.mobile-nav-footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #f4f4f4;
+  color: #0f62fe;
+  font-weight: 600;
+  text-decoration: none;
+}
+.fab-chat-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #0f62fe;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 10000;
+}
+
+
+@media (max-width: 1024px) {
+  .desktop-nav, .desktop-only-icon {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .navbar-left {
+    gap: 1rem;
+  }
+  .ibm-logo-link {
+    border-right: none;
+    padding-right: 0;
+  }
+}
